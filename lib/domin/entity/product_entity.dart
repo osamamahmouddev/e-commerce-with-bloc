@@ -1,13 +1,13 @@
-class ProductEntity {
-  final String title;
-  final String description;
-  final int price;
-  final String image;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  ProductEntity({
-    required this.title,
-    required this.description,
-    required this.price,
-    required this.image,
-  });
+part 'product_entity.freezed.dart';
+
+@freezed
+abstract class ProductEntity with _$ProductEntity {
+  factory ProductEntity({
+    required String title,
+    required String description,
+    required int price,
+    required String image,
+  }) = _ProductEntity;
 }

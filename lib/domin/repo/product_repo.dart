@@ -1,7 +1,7 @@
-import 'package:api/core/core.dart';
+import 'package:fpdart/fpdart.dart';
 
 import '../domin.dart';
 
 abstract class ProductRepo {
-  Future<ApiResult<List<ProductEntity>>> getProducts();
+  Future<Either<List<ProductEntity>, String>> getProducts();
 }

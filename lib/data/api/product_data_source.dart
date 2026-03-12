@@ -1,14 +1,15 @@
-import 'package:dio/dio.dart';
-import 'package:retrofit/retrofit.dart';
+import 'package:api/core/network/api_consumer.dart';
 
 import '../data.dart';
 
-part 'product_data_source.g.dart';
+class ProductDataSource {
+  final ApiConsumer apiConsumer;
 
-@RestApi(baseUrl: 'https://api.escuelajs.co/api/')
-abstract class ProductDataSource {
-  factory ProductDataSource(Dio dio, {String? baseUrl}) = _ProductDataSource;
-
-  @GET('v1/products/')
-  Future<List<ProductResponseModel>> getProducts();
+  ProductDataSource({required this.apiConsumer});
+  Future<List<ProductResponseModel>> getProducts() async {
+    final response = await apiConsumer.get(path: 'v1/products/') as List;
+    return response
+        .map((e) => ProductResponseModel.fromJson(e as Map<String, dynamic>))
+        .toList();
+  }
 }

@@ -12,11 +12,7 @@ class OnBoardingScreen extends StatelessWidget {
       body: Center(
         child: TextButton(
           onPressed: () {
-            context.goNamed(
-              Routes.product,
-              queryParameters: {},
-              pathParameters: {"productId": "1111"},
-            );
+            context.push(Routes.initial);
           },
           child: Text("see all products"),
         ),

@@ -1,4 +1,3 @@
-class Routes{
+class Routes {
   static const String initial = '/';
-  static const String product = '/product';
 }
